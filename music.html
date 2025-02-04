@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Tunes</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            background-color: #f8c6d6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #ffb6c1;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ff69b4;
+            padding: 10px 10px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ff1493;
+        }
+        .music-player {
+            background-color: #A8D5BA;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .song-list {
+            margin-top: 20px;
+        }
+        .song-list button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #ffb6c1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .song-list button:hover {
+            background-color: #ff69b4;
+        }
+        footer {
+            background-color: #ffb6c1;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #6F9A6E;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Tunes</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+            <a href="current.html">Status?!</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog.html">Blog</a>
+            <a href="daily.html">Maple Daily List (TBA)</a>
+			<a href="music.html">Tunes</a>
+        </nav>
+    </header>
+    
+    <div class="music-player">
+        <h2>Now Playing</h2>
+        <img id="song-image" src="default.jpg" alt="Song Cover" style="width: 100%; border-radius: 10px;">
+        <h3 id="song-title">Select a song</h3>
+        <audio id="audio-player" controls></audio>
+        <div>
+            <button onclick="prevSong()">⏮ Previous</button>
+            <button onclick="nextSong()">⏭ Next</button>
+        </div>
+        <div class="song-list" id="song-list">
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Kayla. All rights reserved.</p>
+    </footer>
+<!-- // Song's bellow -->
+    <script>
+        const songs = [
+            { title: "Los! Los! Los! (Germen)", src: "music/song1.mp3", image: "music/song1.png" },
+            { title: "Los! Los! Los! (English)", src: "music/song2.mp3", image: "music/song2.jpg" },
+            { title: "Rabit Hole", src: "music/song3.mp3", image: "music/song3.jpg" },
+			{ title: "Vampire", src: "music/song4.mp3", image: "music/song4.jpg" }
+        ];
+        let currentSongIndex = 0;
+        
+        const audioPlayer = document.getElementById("audio-player");
+        const songTitle = document.getElementById("song-title");
+        const songImage = document.getElementById("song-image");
+        const songList = document.getElementById("song-list");
+        
+        function loadSong(index) {
+            const song = songs[index];
+            audioPlayer.src = song.src;
+            songTitle.innerText = song.title;
+            songImage.src = song.image;
+        }
+        
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+            audioPlayer.play();
+        }
+        
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+            audioPlayer.play();
+        }
+        
+        songs.forEach((song, index) => {
+            const button = document.createElement("button");
+            button.innerText = song.title;
+            button.onclick = () => {
+                currentSongIndex = index;
+                loadSong(index);
+                audioPlayer.play();
+            };
+            songList.appendChild(button);
+        });
+        
+        loadSong(currentSongIndex);
+    </script>
+</body>
+</html>

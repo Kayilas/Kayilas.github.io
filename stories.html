@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <title>Kayla's Blog</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            background-color: #f8c6d6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #ffb6c1;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        nav a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ff69b4;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        nav a:hover {
+            color: #ff1493;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+        .content {
+            padding: 20px;
+        }
+        .my-melody-fixed {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 80px;
+            height: auto;
+            z-index: 1000;
+        }
+        footer {
+            background-color: #ffb6c1;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            color: #6F9A6E;
+        }
+        .blog-post-preview {
+			margin-bottom: 20px;
+			padding: 20px;
+			background-color: #e0f2f1;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+        .blog-post-preview h2 {
+            font-size: 1.25rem;
+        }
+        .blog-post-preview p {
+            margin: 0 0 10px;
+        }
+        .blog-post-preview a {
+            text-decoration: none;
+            color: #ff69b4;
+            font-weight: bold;
+        }
+        .blog-post-preview a:hover {
+            color: #ff1493;
+        }
+		.old-blog-button {
+			margin-top: 20px;
+			text-align: center;
+		}
+		.old-blog-button a {
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 1rem;
+			color: #4B0082;
+			background-color: #ff69b4;
+			text-decoration: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+			transition: background-color 0.3s ease; 
+		}
+		.old-blog-button a:hover {
+			background-color: #ff1493;
+		}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kayla's Blog</h1>
+        <nav>
+			<a href="index.html">Home</a>
+            <a href="aboutme.html">About Me</a>
+			<a href="current.html">Status?!</a>
+			<a href="contact.html">Contact</a>
+			<a href="blog.html">Blog</a>
+			<a href="daily.html">Maple Daily List</a>
+        </nav>
+    </header>
+
+    <img src="images/stickerL.png" alt="My Melody" class="my-melody-fixed">
+
+    <div class="container">
+        <section id="blog">
+            <div class="blog-post-preview">
+                <h2><a href="stories/story.html">Tanya</a></h2>
+                <p>A fanfiction based offf the idea of an AU where tanya was born without her magic...</p>
+            </div>
+            <div class="divider">
+                <img src="images/divider-line2.png" alt="Divider">
+            </div>
+            <div class="blog-post-preview">
+                <h2><a href="blogs/post2.html">Filler</a></h2>
+                <p>Filler</p>
+            </div>
+            <div class="divider">
+                <img src="images/divider-line2.png" alt="Divider">
+            </div>
+            <div class="blog-post-preview">
+                <h2><a href="blogs/post3.html">Filler</a></h2>
+                <p>Monika!...</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kayla. All rights reserved.</p>
+		<div class="old-blog-button">
+			<a href="old-blog.html">Visit My Old Blog</a>
+		</div>
+    </footer>
+</body>
+</html>
